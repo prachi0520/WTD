@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>University Webpage</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Menubar Styles */
+        .menubar {
+            background-color: #333;
+            overflow: hidden;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .menubar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+            cursor: pointer;
+        }
+
+        .menubar a:hover {
+            background-color: #575757;
+        }
+
+        /* Marquee Styles */
+        marquee {
+            background-color: #a1c4ed;
+            color: #333;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .footer a {
+            color: #99d1ea;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Time Table and Result Styles */
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 90%;
+            height: 90%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .marksheet {
+            padding: 20px;
+        }
+
+        .marks-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .marks-table th, .marks-table td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+            background-color: white;
+        }
+
+        .marks-table th {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <script>
+        // Function to load content dynamically
+        function loadContent(section) {
+            const content = document.getElementById('content');
+            switch (section) {
+                case 'home':
+                    content.innerHTML = `
+                        <h1>Welcome to Karnavati University</h1>
+                        <p>Your future begins here. Explore Your Time Table and Result.</p>`;
+                    break;
+                case 'time-table':
+                    content.innerHTML = `
+                        <img src="C:/Users/hp/OneDrive/Desktop/WTD/Screenshot 2025-02-24 134511.png" alt="Background Image" class="background-image">
+                        <h2><center>Time Table</center></h2>
+                        <table>
+                            <tr>
+                                <th>Day/Time</th>
+                                <th>11:00-11:50</th>
+                                <th>11:50-12:40</th>
+                                <th>12:40-13:30</th>
+                                <th>13:30-14:20</th>
+                                <th>14:20-15:10</th>
+                                <th>15:10-16:10</th>
+                                <th>16:10-17:00</th>
+                            </tr>
+                            <tr>
+                                <td>Mon</td>
+                                <td>IML (MK)</td>
+                                <td>IML (MK)</td>
+                                <td rowspan="5"><b>LUNCH</b></td>
+                                <td>WTD (RM, SA)</td>
+                                <td>WTD (RM)</td>
+                                <td>OS (GL)</td>
+                                <td>OOPJ (RG)</td>
+                            </tr>
+                            <tr>
+                                <td>Tue</td>
+                                <td>OOPJ (RG)</td>
+                                <td>CHAMBER</td>
+                                <td>LIBRARY</td>
+                                <td>WTD (RM)</td>
+                                <td>OOPJ (RG, AS)</td>
+                                <td>OOPJ (RG, AS)</td>
+                            </tr>
+                            <tr>
+                                <td>Wed</td>
+                                <td>OS (GL)</td>
+                                <td>CHAMBER</td>
+                                <td>WTD (RM)</td>
+                                <td>SM&BW (HM)</td>
+                                <td>LR (L&D)</td>
+                                <td>IML (MK)</td>
+                            </tr>
+                            <tr>
+                                <td>Thu</td>
+                                <td>OS (GL)</td>
+                                <td>CHAMBER</td>
+                                <td>WTD (RM)</td>
+                                <td>IML (MK)</td>
+                                <td>LR (L&D)</td>
+                                <td>LIBRARY</td>
+                            </tr>
+                            <tr>
+                                <td>Fri</td>
+                                <td>CHAMBER</td>
+                                <td>IML (MK)</td>
+                                <td>OS (GL)</td>
+                                <td>SM&BW (HM)</td>
+                                <td>LIBRARY</td>
+                                <td>MENTORING</td>
+                            </tr>
+                        </table>`;
+                    break;
+                case 'result':
+                    content.innerHTML = `
+                        <div class="marksheet">
+                            <div class="header">
+                              <img src="C:/Users/hp/OneDrive/Desktop/WTD/Screenshot 2025-02-24 134511.png" alt="Background Image" class="background-image">
+
+
+
+                                <h1>Karnavati University</h1>
+                                <h2>Annual Statement of Marks</h2>
+                                <p>UnitedWorld Institute of Technology (UIT)</p>
+                            </div>
+
+                            <div class="info">
+                                <table>
+                                    <tr>
+                                        <td>Name of the Candidate:</td>
+                                        <td>Patel Prachi</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Course Name:</td>
+                                        <td>B.S</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Student ID:</td>
+                                        <td>23CS04</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Enrollment Number:</td>
+                                        <td>202307010033</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <table class="marks-table">
+                                <thead>
+                                    <tr>
+                                        <th>Subject Code</th>
+                                        <th>Subject Name</th>
+                                        <th>Max. Marks</th>
+                                        <th>Marks Obtained</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>71204001001</td>
+                                        <td>Web Technology and Design</td>
+                                        <td>100</td>
+                                        <td>80</td>
+                                    </tr>
+                                    <tr>
+                                        <td>71204001002</td>
+                                        <td>Object Oriented Programming using Java</td>
+                                        <td>100</td>
+                                        <td>87</td>
+                                    </tr>
+                                    <tr>
+                                        <td>71204001003</td>
+                                        <td>Operating Systems</td>
+                                        <td>100</td>
+                                        <td>87</td>
+                                    </tr>
+                                    <tr>
+                                        <td>71204001004</td>
+                                        <td>Mastering in Kali Linux</td>
+                                        <td>100</td>
+                                        <td>89</td>
+                                    </tr>
+                                    <tr>
+                                        <td>71204001005</td>
+                                        <td>Social Media and Blog Writing</td>
+                                        <td>100</td>
+                                        <td>86</td>
+                                    </tr>
+                                    <tr>
+                                        <td>UC012000003</td>
+                                        <td>Quantitative Aptitude & Interpretation</td>
+                                        <td>100</td>
+                                        <td>85</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="footer">
+                                <p>Total Obtained Marks: 459</p>
+                                <p>Total Marks: 600</p>
+                                <p>Month and Year of Examination: Feb 2025</p>
+                                <p>Result: PASS</p>
+                                <p>Percentage: 85.9</p>
+                                <p>Grade: A</p>
+                            </div>
+                        </div>`;
+                    break;
+                case 'contact-us':
+                    content.innerHTML = `
+                        <h1>Contact Us</h1>
+                        <p>Email: contact@karnavatiuniversity.edu</p>
+                        <p>Phone: +91-8320558869</p>
+                        <p>Address: Karnavati University, unvarsad, Ahmedabad City, India</p>`;
+                    break;
+                default:
+                    content.innerHTML = `<h1>404 - Page Not Found</h1>`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <!-- Menubar -->
+    <div class="menubar">
+        <a onclick="loadContent('home')">Home</a>
+        <a onclick="loadContent('time-table')">Time Table</a>
+        <a onclick="loadContent('result')">Result</a>
+        <a onclick="loadContent('contact-us')">Contact Us</a>
+    </div>
+
+    <!-- Marquee -->
+    <marquee behavior="scroll" direction="left">Welcome to Karnavati University - Excellence in Education!</marquee>
+
+    <!-- Main Content -->
+    <div id="content" style="padding: 20px;">
+        <h1>Welcome to Karnavati University</h1>
+        <p>Your future begins here. Explore your Time Table and Results.</p>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p><a onclick="loadContent('home')">Home</a> | <a onclick="loadContent('time-table')">Time Table</a> | <a onclick="loadContent('result')">Result</a> | <a onclick="loadContent('contact-us')">Contact Us</a></p>
+    </div>
+</body>
+</html>

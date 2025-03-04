@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karnavati University Student Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .login-container, .details-container {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary {
+            background-color: black;
+            border-color: black;
+        }
+        .btn-primary:hover {
+            background-color: gray !important;
+            border-color: gray !important;
+        }
+        .marksheet-bg {
+            background: url("C:/Users/hp/OneDrive/Desktop/WTD/kulogo.jpeg") no-repeat center center fixed;
+            background-size: contain; /* Adjust if needed */
+            background-position: center;
+            background-blend-mode: lighten;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: black; /* Adjust text color for readability */
+        }
+        .timetable-bg {
+            background: url("C:/Users/hp/OneDrive/Desktop/WTD/kulogo.jpeg") no-repeat center center fixed;
+            background-size: contain; /* Adjust if needed */
+            background-position: center;
+            background-blend-mode: lighten;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            color: black; /* Adjust text color for readability */
+        }
+         /* Marquee Styles */
+         marquee {
+            background-color: #a1c4ed;
+            color: #333;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        function login() {
+            let enrollment = document.getElementById("enrollment").value;
+            let name = document.getElementById("name").value;
+            let password = document.getElementById("password").value;
+
+            if (enrollment && name && password) {
+                document.getElementById("login-section").style.display = "none";
+                document.getElementById("dashboard").style.display = "block";
+                document.getElementById("navbar").style.display = "block";
+                document.getElementById("sitemap").style.display = "block";
+                document.getElementById("welcome-msg").innerText = `Welcome, ${name}!`;
+            } else {
+                alert("Please enter Enrollment Number, Name, and Password.");
+            }
+        }
+
+        function showStudentDetails() {
+            document.getElementById("dashboard").style.display = "none";
+            document.getElementById("marksheet").style.display = "none";
+            document.getElementById("timetable").style.display = "none"; // Hide timetable
+            document.getElementById("student-details").style.display = "block";
+            document.getElementById("contact-us").style.display = "none";
+        }
+
+        function showMarksheet() {
+            document.getElementById("dashboard").style.display = "none";
+            document.getElementById("student-details").style.display = "none";
+            document.getElementById("timetable").style.display = "none"; // Hide timetable
+            document.getElementById("marksheet").style.display = "block";
+            document.getElementById("contact-us").style.display = "none";
+        }
+
+        function goBack() {
+            document.getElementById("student-details").style.display = "none";
+            document.getElementById("marksheet").style.display = "none";
+            document.getElementById("timetable").style.display = "none"; // Hide timetable
+            document.getElementById("dashboard").style.display = "block";
+            document.getElementById("contact-us").style.display = "none";
+        }
+
+        function showContactUs() {
+        // Hide other sections
+        document.getElementById("dashboard").style.display = "none";
+        document.getElementById("student-details").style.display = "none";
+        document.getElementById("marksheet").style.display = "none";
+        document.getElementById("timetable").style.display = "none";
+
+        // Show Contact Us section
+        document.getElementById("contact-us").style.display = "block";
+    }
+    </script>
+    <script>
+        function logout() {
+            document.getElementById("dashboard").style.display = "none";
+            document.getElementById("navbar").style.display = "none";
+            document.getElementById("sitemap").style.display = "none";
+            document.getElementById("login-section").style.display = "block";
+        }
+    </script>
+     <script>
+    function logout() {
+        // Hide all sections
+        document.getElementById("dashboard").style.display = "none";
+        document.getElementById("navbar").style.display = "none";
+        document.getElementById("sitemap").style.display = "none";
+        document.getElementById("student-details").style.display = "none";
+        document.getElementById("marksheet").style.display = "none";
+        document.getElementById("timetable").style.display = "none";
+        document.getElementById("contact-us").style.display = "none";
+    
+         // Clear login inputs
+    document.getElementById("enrollment").value = "";
+    document.getElementById("name").value = "";
+    document.getElementById("password").value = "";
+        // Show login section
+        document.getElementById("login-section").style.display = "block";
+    }
+</script>
+</head>
+<body>
+    <nav id="navbar" class="navbar navbar-dark bg-dark navbar-expand-lg" style="display: none;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Karnavati university Student Portal</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showStudentDetails()">Student profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showMarksheet()">Marksheet</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showTimetable()">Timetable</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showContactUs()">Contact Us</a></li>
+                    <li class="nav-item"><a class="nav-link text-danger" href="#" onclick="logout()">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  <!-- Marquee -->
+  <marquee behavior="scroll" direction="left">Welcome to Karnavati University - Excellence in Education!</marquee>
+    <div class="container mt-5 text-center">
+        <div id="login-section">
+            <h2>Karnavati University Student Portal</h2>
+            <div class="login-container mx-auto" style="max-width: 400px;">
+                <input type="text" id="enrollment" class="form-control mb-2" placeholder="Enrollment Number">
+                <input type="text" id="name" class="form-control mb-2" placeholder="Name">
+                <input type="password" id="password" class="form-control mb-2" placeholder="Password">
+                <button class="btn btn-primary w-100" onclick="login()">Login</button>
+            </div>
+        </div>
+
+        <div id="dashboard" style="display: none;">
+            <h2 id="welcome-msg"></h2>
+        </div>
+
+        <div id="student-details" style="display: none;" class="details-container mx-auto mt-4" style="max-width: 500px;">
+            <img id="profile-pic" src="C:/Users/hp/OneDrive/Desktop/WTD/profile.jpg" alt="Profile Photo" class="img-thumbnail" width="140">
+
+            <h2>Student profile</h2>
+            <p><strong>Name:</strong> Patel Prachi Anilkumar</p>
+            <p><strong>Student ID:</strong> 23BSCS22</p>
+            <p><strong>Enrollment No:</strong> 202307010033</p>
+            <p><strong>Gender:</strong> Female</p>
+            <p><strong>Date of Birth:</strong> 20-May-2005</p>
+            <p><strong>Email:</strong> 202307010033@studentportal.edu.in</p>
+            <p><strong>Mobile Number:</strong> +91 8320558869</p>
+            <p><strong>Address:</strong> B2/404 Uttamnagar, Maninagar, Ahmedabad</p>
+            <p><strong>Date of Registration:</strong> 11-Aug-2023</p>
+            <p><strong>Father's Name:</strong> Mr. Anil Bhagwan Bhai</p>
+            <p><strong>Mother's Name:</strong> Mrs. Nayana Patel</p>
+            <p><strong>Caste:</strong> General</p>
+            <p><strong>Blood Group:</strong> B+</p>
+            <button class="btn btn-secondary mt-3" onclick="goBack()">Back</button>
+        </div>
+
+        <div id="marksheet" style="display: none;" class="container-box mt-4 marksheet-bg">
+            <h3>Marksheet</h3>
+            <p><strong>Name:</strong> Patel Prachi Anilkumar</p>
+            <p><strong>Course:</strong> BS CS</p>
+            <p><strong>Enrollment Number:</strong> 202307010033</p>
+            <table class="table table-bordered mt-3">
+                <thead class="table-light">
+                    <tr>
+                        <th>Subject Code</th>
+                        <th>Subject Name</th>
+                        <th>Max. Marks</th>
+                        <th>Marks Obtained</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>71204001001</td><td>Web Technology and Design</td><td>100</td><td>80</td></tr>
+                    <tr><td>71204001002</td><td>OOP using Java</td><td>100</td><td>87</td></tr>
+                    <tr><td>71204001003</td><td>Operating Systems</td><td>100</td><td>87</td></tr>
+                    <tr><td>71204001004</td><td>Kali Linux</td><td>100</td><td>89</td></tr>
+                    <tr><td>71204001005</td><td>Social Media & Blogging</td><td>100</td><td>86</td></tr>
+                    <tr><td>UC012000003</td><td>Quantitative Aptitude</td><td>100</td><td>85</td></tr>
+                </tbody>
+            </table>
+            <div class="bg-dark text-white p-3 mt-3">
+                <p><strong>Total Marks:</strong> 600</p>
+                <p><strong>Obtained Marks:</strong> 459</p>
+                <p><strong>Percentage:</strong> 85.9%</p>
+                <p><strong>Grade:</strong> A</p>
+                <p><strong>Result:</strong> PASS</p>
+            </div>
+            <button class="btn btn-secondary mt-3" onclick="goBack()">Back</button>
+        </div>
+  
+<div id="timetable" style="display: none;" class="container-box mt-4 timetable-bg">
+    <h3>Timetable</h3>
+    <table class="table table-bordered text-center">
+        <thead class="table-dark text-white">
+            <tr>
+                <th>Day/Time</th>
+                <th>11:00-11:50</th>
+                <th>11:50-12:40</th>
+                <th>12:40-13:30</th>
+                <th>13:30-14:20</th>
+                <th>14:20-15:10</th>
+                <th>15:10-16:10</th>
+                <th>16:10-17:00</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Mon</td>
+                <td>IML (MK)</td>
+                <td>IML (MK)</td>
+                <td rowspan="5" class="table-light fw-bold">LUNCH</td>
+                <td>WTD (RM, SA)</td>
+                <td>WTD (RM)</td>
+                <td>OS (GL)</td>
+                <td>OOPJ (RG)</td>
+            </tr>
+            <tr>
+                <td>Tue</td>
+                <td>OOPJ (RG)</td>
+                <td>CHAMBER</td>
+                <td>LIBRARY</td>
+                <td>WTD (RM)</td>
+                <td>OOPJ (RG, AS)</td>
+                <td>OOPJ (RG, AS)</td>
+            </tr>
+            <tr>
+                <td>Wed</td>
+                <td>OS (GL)</td>
+                <td>CHAMBER</td>
+                <td>WTD (RM)</td>
+                <td>SM&BW (HM)</td>
+                <td>LR (L&D)</td>
+                <td>IML (MK)</td>
+            </tr>
+            <tr>
+                <td>Thu</td>
+                <td>OS (GL)</td>
+                <td>CHAMBER</td>
+                <td>WTD (RM)</td>
+                <td>IML (MK)</td>
+                <td>LR (L&D)</td>
+                <td>LIBRARY</td>
+            </tr>
+            <tr>
+                <td>Fri</td>
+                <td>CHAMBER</td>
+                <td>IML (MK)</td>
+                <td>OS (GL)</td>
+                <td>SM&BW (HM)</td>
+                <td>LIBRARY</td>
+                <td>MENTORING</td>
+            </tr>
+        </tbody>
+    </table>
+    <button class="btn btn-secondary mt-3" onclick="goBack()">Back</button>
+</div>
+
+<script>
+    function showTimetable() {
+    document.getElementById("dashboard").style.display = "none";
+    document.getElementById("student-details").style.display = "none";
+    document.getElementById("marksheet").style.display = "none";
+    document.getElementById("timetable").style.display = "block";
+    document.getElementById("contact-us").style.display = "none"; // Hide Contact Us
+}
+
+</script>
+<div id="contact-us" class="container mt-5" style="display: none;">
+    <h4>Contact Us</h4>
+    <p><strong>Email:</strong> contact@karnavatiuniversity.edu</p>
+    <p><strong>Phone:</strong> +91-8320558869</p>
+    <p><strong>Address:</strong> Karnavati University, Unvarsad, Ahmedabad City, India</p>
+    <button class="btn btn-secondary mt-3" onclick="goBack()">Back</button>
+</div>
+
+    <footer id="sitemap" class="bg-dark text-white text-center py-3 mt-5" style="display: none;">
+        <p><a href="#" onclick="showStudentDetails()">Student profile</a> | <a href="#" onclick="showMarksheet()">Marksheet</a> | <a href="#" onclick="showTimetable()">Timetable</a> | <a href="#" onclick="showContactUs()">Contact Us</a> |  <a href="#" class="text-danger" onclick="logout()">Log Out</a></p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
